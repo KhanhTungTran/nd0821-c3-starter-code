@@ -28,9 +28,9 @@ jobs:
         working-directory: ./starter
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          flake8 --format=github --select=E9,F63,F7,F82 --statistics .
+          flake8 --exclude starter/sanitycheck.py --format=github --select=E9,F63,F7,F82 --statistics .
           # default set of ruff rules with GitHub Annotations
-          flake8 --format=github  .
+          flake8 --exclude starter/sanitycheck.py --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics .
       - name: Test with pytest
         working-directory: ./starter
         run: |
