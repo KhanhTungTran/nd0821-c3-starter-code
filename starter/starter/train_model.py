@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
 # Add code to load in the data.
-data = pd.read_csv('starter/data/census.csv', index_col=0)
+data = pd.read_csv('data/census.csv', index_col=0)
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.20, stratify=data['salary'])
@@ -59,10 +59,10 @@ for c in cat_features:
     result_df.append(temp_df)
 
 result_df = pd.concat(result_df)
-result_df.to_csv("starter/model/slice_result.csv")
+result_df.to_csv('slice_output.txt')
 
 
 logger.info("Saving model")
-dump(model, 'starter/model/rf_model.joblib')
-dump(encoder, 'starter/model/encoder.joblib')
-dump(lb, 'starter/model/lb.joblib')
+dump(model, 'model/rf_model.joblib')
+dump(encoder, 'model/encoder.joblib')
+dump(lb, 'model/lb.joblib')
