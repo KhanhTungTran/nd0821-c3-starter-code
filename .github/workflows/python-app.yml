@@ -35,3 +35,6 @@ jobs:
         working-directory: ./starter
         run: |
           pytest
+      - name: Notify deployment server
+        run: |
+          curl -X GET https://api.render.com/deploy/srv-ch2mgdrh4hsum47fg350?key=MbfZePZFYUA
