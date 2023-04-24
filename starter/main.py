@@ -28,9 +28,8 @@ class SingleSample(BaseModel):
     native_country: str
 
     class Config:
-        alias_generator = to_underscore
-        scheme_extra = {
-            "example":  {
+        schema_extra = {
+            "example": {
                 'age': 54,
                 'workclass': "Private",
                 'fnlgt': 302146,
@@ -47,6 +46,7 @@ class SingleSample(BaseModel):
                 'native_country': "United-States"
             }
         }
+        alias_generator = to_underscore
 
 
 app = FastAPI()
